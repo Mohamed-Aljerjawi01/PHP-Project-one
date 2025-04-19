@@ -1,9 +1,11 @@
 <?php
+echo '<h1>Welcome to MASSEGE</h1><br>';
+echo $idid;
+?>
 
+<!-- OR -->
 
-echo '<h1>MASSEGE</h1><br>';
-echo $id;
-
-
-
+<h1>Welcome to MASSEGE</h1>
+<?php
+echo $idid;
 ?>

@@ -1,11 +1,20 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiteOne\SiteOneController;
+use App\Http\Controllers\SiteTwo\SiteTwoController;
 
-Route::get('/welcome', function () {
+
+Route::get('/', function () {
     // return 'welcom ' . 'page';
     return view('welcome');
 });
+
+////////////////////////////// Licture One => SiteOne ////////////////////////////// 
+// 1- Use SiteOneController in SiteOne Folder in controllers Folder in Http Folder.
+// 2- Use files in SiteOne Folder in views Folder in recources Folder.
+// 3- Use This code in web.php file in routes Folder.
+//////////////////////////////
 
 // line coment
 
@@ -13,7 +22,7 @@ Route::get('/welcome', function () {
 more line coments
 */
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////
 
 /*
 // * user site :-
@@ -23,7 +32,7 @@ more line coments
 //     return 'user profile';
 // });
 
-******************************
+**********
 
 // Route::get('/user/profile/{id}' , function($id){
 //     // echo 'mohammed ' . 'aljerjawi'; ==> . is concatanation in php
@@ -32,7 +41,7 @@ more line coments
 // });
 */
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////
 
 /*
 // * news site :-
@@ -45,7 +54,7 @@ more line coments
 //     }
 // });
 
-******************************
+**********
 
 // Route::get('news/{id}' , function($id){
 //     $news = [1,2,3,6,8];
@@ -60,7 +69,7 @@ more line coments
 //     }
 // });
 
-******************************
+**********
 
 // Route::get('news/{id?}' , function($id = null){
 //     $news = [1,2,3,6,8];
@@ -77,7 +86,7 @@ more line coments
 // });
 */
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////
 
 /*
 // * site 1 / home , about us , contact us //
@@ -94,7 +103,7 @@ Route::get( '/site1/contact', function(){
     echo '<h1>Welcome to Contact</h1>';
 });
 
-******************************
+**********
 
 // * site 2 / home , about us , contact us //
 // prefix
@@ -113,7 +122,7 @@ Route::prefix('site2')->group(function(){
     });
 });
 
-******************************
+**********
 
 // * site 3 / products / product-one , product-two , product-three //
 // prefix
@@ -131,9 +140,11 @@ Route::prefix('site3/products')->group(function(){
         echo '<h1>Welcome to product-three</h1>';
     });
 });
+*/
 
-******************************
+//////////////////////////////
 
+/*
 // * site 1 / home , about us , contact us //
 // prefix
 Route::prefix('site1')->group(function(){
@@ -144,9 +155,8 @@ Route::prefix('site1')->group(function(){
     // contact us
     Route::get( '/contact', [SiteOneController::class , 'contact']);
 });
-*/
 
-////////////////////////////////////////////////////////////////////////////////////////////////
+**********
 
 // * site 1 / home , about us , contact us //
 // prefix
@@ -161,6 +171,47 @@ Route::prefix('site1')->group(function(){
     Route::get( '/msg', [SiteOneController::class , 'msg']);
     // massege
     Route::get( '/massege/{id}', [SiteOneController::class , 'massege']);
+});
 
+**********
+
+// * site 1 / home , about us , contact us //
+// prefix
+Route::prefix('site1')->controller(SiteOneController::class)->group(function(){
+    // home
+    Route::get( '/home' , 'home');
+    // about us
+    Route::get( '/about' , 'about');
+    // contact us
+    Route::get( '/contact' , 'contact');
+    // msg
+    Route::get( '/msg' , 'msg');
+    // massege
+    Route::get( '/massege/{id}', 'massege');
+    // masseges
+    Route::get( '/masseges/{id}', 'masseges');
+    // massegesOne
+    Route::get( '/massegesOne/{id}', 'massegesOne');
+    // massegesTwo
+    Route::get( '/massegesTwo/{id}', 'massegesTwo');
+});
+*/
+
+////////////////////////////// Licture Two => SiteTwo //////////////////////////////
+// 1- Use SiteTwoController in SiteTwo Folder in controllers Folder in Http Folder.
+// 2- Use Folders in SiteTwo Folder in public Folder.
+// 3- Use files in SiteTwo Folder in views Folder in recources Folder.
+// 4- Use This code in web.php file in routes Folder.
+//////////////////////////////
+
+Route::prefix('site2')->name('site2.')->controller(SiteTwoController::class)->group(function(){
+    Route::get('/master' , 'master');
+    Route::get('/home' , 'home')->name('home');
+    Route::get('/services' , 'services')->name('services');
+    Route::get('/portfolio' , 'portfolio')->name('portfolio');
+    Route::get('/about' , 'about')->name('about');
+    Route::get('/team' , 'team')->name('team');
+    Route::get('/contact' , 'contact')->name('contact');
+    Route::post('/contact' , 'postcontact')->name('postcontact');
 });
 

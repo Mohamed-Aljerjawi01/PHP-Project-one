@@ -27,8 +27,20 @@ class SiteOneController extends Controller
     }
 
     function massege($id){
-        return view('SiteOne.massege')->with('id' , $id);
+        return view('SiteOne.massege')->with('idid' , $id);
+    }
+    
+    function masseges($id){
+        return view('SiteOne.masseges')->with('id' , $id);
     }
 
+    function massegesOne($id){
+        return view('SiteOne.masseges' , [
+            'id' => $id
+        ]);
+    }
 
+    function massegesTwo($id){
+        return view('SiteOne.masseges' , compact('id'));
+    }
 }
