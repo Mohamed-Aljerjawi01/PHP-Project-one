@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteOne\SiteOneController;
 use App\Http\Controllers\SiteTwo\SiteTwoController;
+use App\Http\Controllers\SiteThree\SiteThreeController;
+
 
 
 Route::get('/', function () {
@@ -197,6 +199,8 @@ Route::prefix('site1')->controller(SiteOneController::class)->group(function(){
 });
 */
 
+
+/*
 ////////////////////////////// Licture Two => SiteTwo //////////////////////////////
 // 1- Use SiteTwoController in SiteTwo Folder in controllers Folder in Http Folder.
 // 2- Use Folders in SiteTwo Folder in public Folder.
@@ -214,4 +218,30 @@ Route::prefix('site2')->name('site2.')->controller(SiteTwoController::class)->gr
     Route::get('/contact' , 'contact')->name('contact');
     Route::post('/contact' , 'postcontact')->name('postcontact');
 });
+*/
+
+
+////////////////////////////// Licture three => SiteThree //////////////////////////////
+// Talking about Validation in php laravel and How to uploads file to DB
+// Search about: 1- validattion in html 2- validattion in php laravel 
+// 1- Use SiteThreeController in SiteThree Folder in controllers Folder in Http Folder.
+// 2- Use Folders in SiteThree Folder and SiteThreeUploads Folder in public Folder.
+// 3- Use files in SiteThree Folder in views Folder in recources Folder.
+// 4- Use This code in web.php file in routes Folder.
+//////////////////////////////
+
+Route::prefix('site3')->name('site3.')->controller(SiteThreeController::class)->group(function(){
+    Route::get('/master' , 'master');
+    Route::get('/home' , 'home')->name('home');
+    Route::get('/services' , 'services')->name('services');
+    Route::get('/portfolio' , 'portfolio')->name('portfolio');
+    Route::get('/about' , 'about')->name('about');
+    Route::get('/team' , 'team')->name('team');
+    Route::get('/contact' , 'contact')->name('contact');
+    Route::get('/ok' , 'ok')->name('ok');
+    Route::post('/contact' , 'postcontact')->name('postcontact');
+});
+
+
+
 
