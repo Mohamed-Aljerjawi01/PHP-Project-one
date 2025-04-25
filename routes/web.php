@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiteOne\SiteOneController;
 use App\Http\Controllers\SiteTwo\SiteTwoController;
 use App\Http\Controllers\SiteThree\SiteThreeController;
-
-
+use App\Http\Controllers\SiteFour\SiteFourController;
 
 Route::get('/', function () {
     // return 'welcom ' . 'page';
@@ -221,6 +220,7 @@ Route::prefix('site2')->name('site2.')->controller(SiteTwoController::class)->gr
 */
 
 
+/*
 ////////////////////////////// Licture three => SiteThree //////////////////////////////
 // Talking about Validation in php laravel and How to uploads file to DB
 // Search about: 1- validattion in html 2- validattion in php laravel 
@@ -241,7 +241,30 @@ Route::prefix('site3')->name('site3.')->controller(SiteThreeController::class)->
     Route::get('/ok' , 'ok')->name('ok');
     Route::post('/contact' , 'postcontact')->name('postcontact');
 });
+*/
 
 
+////////////////////////////// Licture four => SiteFour //////////////////////////////
+// Search about: 1- DataType in DataBase 2- Constrations in DataBase 
+// 1- Use SiteFourController in SiteFour Folder in controllers Folder in Http Folder.
+// 2- Use Folders in SiteFour Folder and SiteFourUploads Folder in public Folder.
+// 3- Use files in SiteFour Folder in views Folder in recources Folder.
+// 4- Use Contact File in Models Folder in app Folder.
+// 5- Use contacts file in migrations Folder in database Folder.
+// 6- Use .env file.
+// 7- Use This code in web.php file in routes Folder.
+//////////////////////////////
+Route::prefix('site4')->name('site4.')->controller(SiteFourController::class)->group(function(){
+    Route::get('/master' , 'master');
+    Route::get('/home' , 'home')->name('home');
+    Route::get('/services' , 'services')->name('services');
+    Route::get('/portfolio' , 'portfolio')->name('portfolio');
+    Route::get('/about' , 'about')->name('about');
+    Route::get('/team' , 'team')->name('team');
+    Route::get('/contact' , 'contact')->name('contact');
+    Route::get('/ok' , 'ok')->name('ok');
+    Route::post('/contact' , 'postcontact')->name('postcontact');
+    Route::get('/viewcontact' , 'viewcontact')->name('viewcontact');
+});
 
 
