@@ -5,6 +5,8 @@ use App\Http\Controllers\SiteOne\SiteOneController;
 use App\Http\Controllers\SiteTwo\SiteTwoController;
 use App\Http\Controllers\SiteThree\SiteThreeController;
 use App\Http\Controllers\SiteFour\SiteFourController;
+use App\Http\Controllers\SiteFive\SiteFiveController;
+
 
 Route::get('/', function () {
     // return 'welcom ' . 'page';
@@ -206,7 +208,6 @@ Route::prefix('site1')->controller(SiteOneController::class)->group(function(){
 // 3- Use files in SiteTwo Folder in views Folder in recources Folder.
 // 4- Use This code in web.php file in routes Folder.
 //////////////////////////////
-
 Route::prefix('site2')->name('site2.')->controller(SiteTwoController::class)->group(function(){
     Route::get('/master' , 'master');
     Route::get('/home' , 'home')->name('home');
@@ -229,7 +230,6 @@ Route::prefix('site2')->name('site2.')->controller(SiteTwoController::class)->gr
 // 3- Use files in SiteThree Folder in views Folder in recources Folder.
 // 4- Use This code in web.php file in routes Folder.
 //////////////////////////////
-
 Route::prefix('site3')->name('site3.')->controller(SiteThreeController::class)->group(function(){
     Route::get('/master' , 'master');
     Route::get('/home' , 'home')->name('home');
@@ -244,7 +244,9 @@ Route::prefix('site3')->name('site3.')->controller(SiteThreeController::class)->
 */
 
 
+/*
 ////////////////////////////// Licture four => SiteFour //////////////////////////////
+// Talking about uploads data to DB in php laravel and How to view this data in table to user
 // Search about: 1- DataType in DataBase 2- Constrations in DataBase 
 // 1- Use SiteFourController in SiteFour Folder in controllers Folder in Http Folder.
 // 2- Use Folders in SiteFour Folder and SiteFourUploads Folder in public Folder.
@@ -266,5 +268,38 @@ Route::prefix('site4')->name('site4.')->controller(SiteFourController::class)->g
     Route::post('/contact' , 'postcontact')->name('postcontact');
     Route::get('/viewcontact' , 'viewcontact')->name('viewcontact');
 });
+*/
+
+
+////////////////////////////// Licture five => SiteFive //////////////////////////////
+// Talking about entering fake data in to form or database , edit and update data form or database
+// Search about: 1- Methods of Faker Library
+// 1- Use SiteFiveController in SiteFive Folder in controllers Folder in Http Folder.
+// 2- Use Folders in SiteFive Folder and SiteFiveUploads Folder in public Folder.
+// 3- Use files in SiteFive Folder in views Folder in recources Folder.
+// 4- Use Contact File in Models Folder in app Folder.
+// 5- Use contacts file in migrations Folder in database Folder.
+// 6- Use .env file.
+// 7- Use This code in web.php file in routes Folder.
+// 8- Use ContactFactory file in factories Folder in database Folder.
+// 9- Use DatabaseSeeder file in seeders Folder in database Folder
+//////////////////////////////
+Route::prefix('site5')->name('site5.')->controller(SiteFiveController::class)->group(function(){
+    Route::get('/master' , 'master');
+    Route::get('/home' , 'home')->name('home');
+    Route::get('/services' , 'services')->name('services');
+    Route::get('/portfolio' , 'portfolio')->name('portfolio');
+    Route::get('/about' , 'about')->name('about');
+    Route::get('/team' , 'team')->name('team');
+    Route::get('/contact' , 'contact')->name('contact');
+    Route::get('/ok' , 'ok')->name('ok');
+    Route::post('/contact' , 'postcontact')->name('postcontact');
+    Route::get('/viewcontact' , 'viewcontact')->name('viewcontact');
+    Route::get ('/EditContact/{id}' , 'EditContact')->name('EditContact');
+    Route::post ('/update' , 'update')->name('update');
+
+});
+
+
 
 
